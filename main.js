@@ -1,7 +1,12 @@
+// require custom dotenv
+require('dotenv').config();
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const token = 'MzY2Njc5MzE5MTA5NDM1Mzk2.DLwd3A.675uAMUbQ0e-4OYxn4tSJcrb_gA';
+console.log(process.env);
+const token = process.env.discord;
 
+// Http / Https Node
 const http = require('http');
 const https = require('https');
 
@@ -30,19 +35,31 @@ client.on('message', message => {
 
         if (context.includes('https://')) {
             https.get(context, function (res) {
-                message.channel.send("Good News, It's up and working");
+                console.log(res.statusCode);
+                if (res.statusCode === 404) {
+                    message.channel.send("Well this is awkward, it responded but with a 404");
+                } else if (res.statusCode === 301) {
+                    message.channel.send("Well this is awkward, it looks like it was permanently moved :-(");
+                } else {
+                    message.channel.send("Good News, It's up and working");
+                }
             }).on('error', function (e) {
                 message.channel.send('Website is down, send the boys over!');
             });
         } else {
             http.get(context, function (res) {
-                message.channel.send("Good News, It's up and working");
+                console.log(res.statusCode);
+                if (res.statusCode === 404) {
+                    message.channel.send("Well this is awkward, it responded but with a 404");
+                } else if (res.statusCode === 301) {
+                    message.channel.send("Well this is awkward, it looks like it was permanently moved :-(");
+                } else {
+                    message.channel.send("Good News, It's up and working");
+                }
             }).on('error', function (e) {
                 message.channel.send('Website is down, send the boys over!');
             });
         }
-
-
     }
 });
 

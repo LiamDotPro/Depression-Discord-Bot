@@ -5,12 +5,13 @@
   "main": "index.js",
   "dependencies": {
     "discord.js": "^11.2.1",
+    "dotenv": "^4.0.0",
     "express": "^4.16.1",
     "node-opus": "^0.2.7"
   },
   "devDependencies": {},
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node main.js"
   },
   "keywords": [
     "crypto",
