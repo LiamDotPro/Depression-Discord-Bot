@@ -3,7 +3,6 @@ require('dotenv').config();
 
 const Discord = require('discord.js');
 const client = new Discord.Client();
-console.log(process.env);
 const token = process.env.discord;
 
 // Http / Https Node
@@ -16,6 +15,11 @@ const app = express();
 // app.listen(3000, function () {
 //     console.log('Example app listening on port 3000!')
 // });
+
+import api from './lib/api_methods';
+import msp from './lib/current_price_msp'
+
+const _methods = new api();
 
 client.on('ready', () => {
     console.log('I am ready!');

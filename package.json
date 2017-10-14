@@ -4,14 +4,20 @@
   "description": "Depression and sadness are real",
   "main": "index.js",
   "dependencies": {
+    "bluebird": "^3.5.1",
     "discord.js": "^11.2.1",
     "dotenv": "^4.0.0",
     "express": "^4.16.1",
-    "node-opus": "^0.2.7"
+    "loadash": "^1.0.0",
+    "node-opus": "^0.2.7",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "babel-preset-env": "^1.6.0"
+  },
   "scripts": {
-    "dev": "node main.js"
+    "dev": "node ./dist/main.js"
   },
   "keywords": [
     "crypto",
