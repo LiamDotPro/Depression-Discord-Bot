@@ -17,12 +17,13 @@ const app = express();
 // });
 
 import api from './lib/api_methods';
-import msp from './lib/current_price_msp'
+import wallet from './lib/wallet';
 
 const _methods = new api();
+const _wallet = new wallet();
 
 client.on('ready', () => {
-    console.log('I am ready!');
+    // console.log('I am ready!');
 });
 
 // Create an event listener for messages
